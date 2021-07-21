@@ -1,0 +1,15 @@
+{% extends 'django_rest/shared.html' %}
+{% block content %}
+    {% for articel in object_list %}
+        <article>
+        <h2>{{ articel.title }}</h2>
+        <div>{{ articel.auther }}</div>
+        <div>{{ articel.publish }}</div>
+        <P>{{ articel.content  }}</P>
+        <hr>
+        </article>
+    {% empty %}\
+         <div>Nothing to show.</div>
+
+    {% endfor %}
+{% endblock %}
