@@ -12,9 +12,12 @@ from rest_framework.viewsets import ModelViewSet
 # Create your views here.
 
 
-class ArticelSet(ModelViewSet):
+class ArticleViewSet(ModelViewSet):
     queryset =  Articel.objects.all()
     serializer_class = ArticelSerializers
+    filterset_fields =['status', 'auther__username']
+    ordering_fields=['status','publish']
+    search_fields=['title','auther__username','content']
 
     def get_permissions(self):
         """

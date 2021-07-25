@@ -1,18 +1,13 @@
 from django.urls import path, include
+from .views import UserViewSet, ArticleViewSet
 from rest_framework import routers
-from .views import UserViewSet,ArticelSet
 
-app_name= 'api'
+app_name = "api"
 
 router = routers.SimpleRouter()
-router.register('', ArticelSet)
+router.register('articles', ArticleViewSet)
 router.register('users', UserViewSet)
 
-
-
-
 urlpatterns = [
-
-    path('', include(router.urls))
-
+	path("", include(router.urls)),
 ]
